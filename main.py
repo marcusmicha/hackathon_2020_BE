@@ -25,6 +25,5 @@ def get_picture():
     except TypeError as error:
         print(error)
 
-
 if __name__ == '__main__':
     app.run(debug=True)
