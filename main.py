@@ -20,12 +20,10 @@ def get_picture():
     imgstring += "=" * ((4 - len(imgstring) % 4) % 4)
     imgdata = base64.b64decode(imgstring)
     filename = 'some_image.jpg'
-
     with open(filename, 'wb') as f:
         f.write(imgdata)
     response = app.response_class(response=json.dumps(mockdata), status=200, mimetype='application/json')
     return response
-
 
 if __name__ == '__main__':
     app.run()
