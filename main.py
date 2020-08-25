@@ -15,11 +15,15 @@ cors = CORS(app)
 # GET the picture
 @app.route("/productpicture", methods=["POST"])
 def get_picture():
-    file = request.files['image']
-    # Read the image via file.stream
-    img = Image.open(file.stream)
-
-    response = app.response_class(response=json.dumps(mockdata), status=200, mimetype='application/json')
+    try:
+        file = request.files['image']
+        file.save('im-received.png')
+        # Read the image via file.stream
+        # img = Image.open(file.stream)
+        response = app.response_class(response=json.dumps(mockdata), status=200, mimetype='application/json')
+        return response
+    except TypeError as error:
+        print(error)
 
 
 if __name__ == '__main__':
