@@ -2,7 +2,6 @@ from flask import Flask, request, json
 from flask_cors import CORS
 import base64
 from tensorflow import keras
-import os
 from PIL import Image
 import numpy as np
 
